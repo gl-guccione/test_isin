@@ -16,7 +16,7 @@ class CreateStocksTable extends Migration
         Schema::create('stocks', function (Blueprint $table) {
             $table->id();
             $table->string('name', 50);
-            $table->string('isin', 12);
+            $table->string('isin', 12)->unique();
             $table->date('date_of_start');
             $table->date('date_of_end');
             $table->timestamps();

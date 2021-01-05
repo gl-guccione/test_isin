@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'StockController@index')->name('stocks.index');
+Route::post('stocks', 'StockController@store')->name('stocks.store');
+Route::put('stocks/{id}', 'StockController@update')->name('stocks.update');
+Route::delete('stocks/{id}', 'StockController@destroy')->name('stocks.destroy');
