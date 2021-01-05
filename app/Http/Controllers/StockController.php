@@ -47,7 +47,7 @@ class StockController extends Controller
         $newStock = new Stock;
 
         $newStock->name = $data['name'];
-        $newStock->isin = $data['isin'];
+        $newStock->isin = strtoupper($data['isin']);
         $newStock->date_of_start = $data['date_of_start'];
         $newStock->date_of_end = $data['date_of_end'];
 

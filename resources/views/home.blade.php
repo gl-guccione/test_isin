@@ -63,7 +63,7 @@
         </ul>
 
       @else
-        <h2>0 stocks</h2>
+        <h2>Add new stock with the form below</h2>
       @endif
 
       <form action="{{ route('stocks.store') }}" method="POST">
