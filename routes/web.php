@@ -13,7 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// CRUD for Stocks
 Route::get('/', 'StockController@index')->name('stocks.index');
 Route::post('stocks', 'StockController@store')->name('stocks.store');
 Route::put('stocks/{id}', 'StockController@update')->name('stocks.update');
 Route::delete('stocks/{id}', 'StockController@destroy')->name('stocks.destroy');
+
+// Download csv
+Route::get('stocks/csv', 'StockController@exportCsv')->name('stocks.csv');
+// Add random Stock
+Route::get('stocks/random', 'StockController@randomStock')->name('stocks.random');

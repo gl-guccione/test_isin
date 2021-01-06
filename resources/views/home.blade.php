@@ -16,21 +16,21 @@
 
     {{-- header --}}
     <header>
-      <h1 class="text-center">isin database</h1>
+      <h1 class="text-center">Stocks database</h1>
     </header>
     {{-- /header --}}
 
     {{-- main --}}
     <main>
 
-      <div class="heading pt-4">
-        <div class="stock__div">Name</div>
-        <div class="stock__div">Isin</div>
-        <div class="stock__div">Date of start</div>
-        <div class="stock__div">Date of end</div>
-      </div>
-
       @if (count($stocks))
+        <div class="heading pt-4">
+          <div class="stock__div">Name</div>
+          <div class="stock__div">Isin</div>
+          <div class="stock__div">Date of start</div>
+          <div class="stock__div">Date of end</div>
+        </div>
+
         <ul class="stock_list pt-2">
           @foreach ($stocks as $stock)
 
@@ -80,12 +80,13 @@
           @endforeach
         </ul>
 
-        <button class="btn button mt-2 mb-4"><i class="fas fa-file-csv"></i> Export CSV</button>
-        <button class="btn button mt-2 mb-4"><i class="fas fa-random"></i> Generate random stock</button>
+        <a class="btn button mt-2 mb-4" href="{{ route('stocks.csv') }}"><i class="fas fa-file-csv"></i> Export CSV</a>
 
       @else
         <h2>Add new stock with the form below</h2>
       @endif
+
+      <a class="btn button mt-2 mb-4" href="{{ route('stocks.random') }}"><i class="fas fa-random"></i> Generate random stock</a>
 
       {{-- show errors --}}
       @if ($errors->any())
