@@ -1,8 +1,78 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css');
 
 // Variables
 @import 'variables';
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+// custom rules
+body {
+  width: 70%;
+  margin: 30px auto;
+}
+
+.button {
+  border: 2px solid #c4c4c4;
+  color: #474747;
+  margin-right: 1rem;
+  i {
+    color: #474747;
+  }
+  &:hover {
+    background-color: #c4c4c4;
+    color: #fff;
+    i {
+      color: #fff;
+    }
+  }
+  &.delete {
+    &:hover {
+      background-color: red;
+      border-color: red;
+    }
+  }
+  &.edit {
+    &:hover {
+      background-color: #ffc107;
+      border-color: #ffc107;
+    }
+  }
+  &_form {
+    align-self: flex-end;
+  }
+}
+
+.errors {
+  margin: 1rem 0;
+}
+
+label {
+  margin-left: 12px;
+}
+
+.heading {
+  display: flex;
+  align-items: center;
+
+  .stock__div {
+    font-weight: 900;
+    text-decoration: underline;
+  }
+}
+
+.stock_list {
+  padding-left: 0;
+}
+
+.stock {
+  display: flex;
+  align-items: center;
+
+  &__div {
+    width: 200px;
+    overflow: hidden;
+  }
+}

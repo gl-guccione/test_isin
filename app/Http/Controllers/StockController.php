@@ -6,6 +6,9 @@ namespace App\Http\Controllers;
 // using Laravel Facades
 use Illuminate\Http\Request;
 
+// using Carbon
+use Carbon\Carbon;
+
 // unsing Models
 use App\Stock;
 
@@ -20,8 +23,11 @@ class StockController extends Controller
     {
         $stocks = Stock::all();
 
+        $today = Carbon::today();
+
         $data = [
-          'stocks' => $stocks
+          'stocks' => $stocks,
+          'today' => $today
         ];
 
         return view('home', $data);
