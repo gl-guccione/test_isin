@@ -10995,6 +10995,7 @@ label {
 .stock__div {
   width: 200px;
   overflow: hidden;
+  padding: 0 5px;
 }
 
 .line-through > div {
