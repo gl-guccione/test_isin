@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 // using Laravel Facades
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 // using Faker
 use  Faker\Generator as Faker;
@@ -69,6 +70,19 @@ class StockController extends Controller
     }
 
     /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        $stock = Stock::find($id);
+
+        return view('edit', compact('stock'));
+    }
+
+    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -77,7 +91,25 @@ class StockController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $data = $request->all();
+
+      $stock = Stock::find($id);
+
+      $request->validate([
+        'name' => ['required', 'string', 'between:3,50'],
+        'isin' => ['required', 'string', Rule::unique('stocks')->ignore($stock), 'size:12', 'regex:/([a-zA-Z]{2})([0-9]{10})/'],
+        'date_of_start' => ['required', 'date'],
+        'date_of_end' => ['required', 'date', 'after:date_of_start']
+      ]);
+
+      $stock->name = $data['name'];
+      $stock->isin = strtoupper($data['isin']);
+      $stock->date_of_start = $data['date_of_start'];
+      $stock->date_of_end = $data['date_of_end'];
+
+      $stock->update();
+
+      return redirect()->route('stocks.index');
     }
 
     /**

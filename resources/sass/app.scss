@@ -40,6 +40,18 @@ body {
       border-color: #ffc107;
     }
   }
+  &.confirm {
+    &:hover {
+      background-color: #4ea901;
+      border-color: #4ea901;
+    }
+  }
+  &.back {
+    &:hover {
+      background-color: #f68a42;
+      border-color: #f68a42;
+    }
+  }
   &_form {
     align-self: flex-end;
   }
@@ -47,6 +59,19 @@ body {
 
 .errors {
   margin: 1rem 0;
+}
+
+.has-error {
+  label {
+    color: red;
+  }
+  input {
+    border: 2px solid red;
+    &:focus {
+      box-shadow: 0 0 0 0.2rem red;
+      border-color: #fff;
+    }
+  }
 }
 
 label {
@@ -70,9 +95,14 @@ label {
 .stock {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 
   &__div {
     width: 200px;
     overflow: hidden;
   }
+}
+
+.line-through > div {
+  text-decoration: line-through 1px red;
 }

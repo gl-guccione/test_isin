@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 // CRUD for Stocks
 Route::get('/', 'StockController@index')->name('stocks.index');
 Route::post('stocks', 'StockController@store')->name('stocks.store');
+Route::get('stocks/{id}/edit', 'StockController@edit')->name('stocks.edit');
 Route::put('stocks/{id}', 'StockController@update')->name('stocks.update');
 Route::delete('stocks/{id}', 'StockController@destroy')->name('stocks.destroy');
 
